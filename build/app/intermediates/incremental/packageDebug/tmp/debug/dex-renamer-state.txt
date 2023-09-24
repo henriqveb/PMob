@@ -1,0 +1,4 @@
+#Sun Sep 24 00:47:07 BRT 2023
+base.0=C\:\\Users\\joseh\\Downloads\\testandoProjetos-copy-copy\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
