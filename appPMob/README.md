@@ -1,1 +1,0 @@
-pasta para alocação do aplicativo
