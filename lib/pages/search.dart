@@ -34,8 +34,6 @@ class _Search extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 30),
-            CampoTexto(),
             SizedBox(height: 25),
             ListaFaculdadesSearch(),
             SizedBox(height: 20),
