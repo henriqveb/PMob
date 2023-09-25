@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:testandoprojetos/db/cadastro/validator_of_register_dao.dart';
+import 'package:testandoprojetos/db/validator_of_register_dao.dart';
 import 'package:testandoprojetos/pages/principal.dart';
 
 class CorpoCadastro extends StatefulWidget {

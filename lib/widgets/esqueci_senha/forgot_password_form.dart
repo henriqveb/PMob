@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:testandoprojetos/db/esqueci_senha/forgot_password.dart'; // Importe a classe
+import 'package:testandoprojetos/db/forgot_password.dart'; // Importe a classe
 
 class ForgotPasswordForm extends StatefulWidget {
   const ForgotPasswordForm({Key? key}) : super(key: key);

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import '../../db/user_dao.dart';
 import '../../pages/cadastro.dart';
 import '../../pages/esqueci_senha.dart';
 import '../../pages/principal.dart';
-import '../../db/login/auth_service_dao.dart';
-import '../../db/login/user_dao.dart';
+import '../../db/auth_service_dao.dart';
 
 class CorpoLogin extends StatefulWidget {
   const CorpoLogin({Key? key}) : super(key: key);
@@ -191,14 +191,14 @@ class _CorpoLoginState extends State<CorpoLogin> {
               child: _isLoading
                   ? CircularProgressIndicator()
                   : Text(
-                "Login",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+                      "Login",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
             ),
           ),
         ],

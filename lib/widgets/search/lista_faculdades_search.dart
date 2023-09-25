@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:testandoprojetos/db/search/faculdade_search_dao.dart';
+import 'package:testandoprojetos/db/faculdade_search_dao.dart';
 import 'package:testandoprojetos/domain/search/faculdade_search.dart';
 import 'package:testandoprojetos/widgets/search/card_faculdades_search.dart';
 

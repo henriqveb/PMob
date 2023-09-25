@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../domain/search/faculdade_search.dart';
-import '../../db/search/faculdade_search_dao.dart';
+import '../../db/faculdade_search_dao.dart';
 
 
 class CardFaculdadesSearch extends StatelessWidget {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:testandoprojetos/pages/principal.dart';
 import 'package:testandoprojetos/pages/user.dart';
 import 'package:testandoprojetos/widgets/principal/barra_navegacao.dart';
 
-// Classe para gerenciar o estado do tema
 class ThemeProvider with ChangeNotifier {
   bool _isDarkMode = false;
 
@@ -62,7 +62,12 @@ class _Settings extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Principal(),
+                    ),
+                  );
                 },
                 icon: const Icon(Icons.arrow_back_ios_new),
               ),

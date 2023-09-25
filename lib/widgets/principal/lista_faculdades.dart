@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:testandoprojetos/db/principal/faculdade_dao.dart';
+import 'package:testandoprojetos/db/faculdade_dao.dart';
 import 'package:testandoprojetos/domain/principal/faculdade.dart';
 import '../principal/card_faculdade.dart';
 
-class ListaFaculdades extends StatelessWidget {
-  final Future<List<Faculdade>> futureFaculdades = FaculdadeDao().findAll();
+class ListaFaculdades extends StatefulWidget {
+  const ListaFaculdades({super.key});
+
+  @override
+  State<ListaFaculdades> createState() => _ListaFaculdadesState();
+}
+
+class _ListaFaculdadesState extends State<ListaFaculdades> {
+  Future<List<Faculdade>> futureFaculdades = FaculdadeDao().findAll();
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +28,7 @@ class ListaFaculdades extends StatelessWidget {
           );
         } else if (snapshot.hasData) {
           List<Faculdade> faculdades = snapshot.data!;
-          return ListView.separated( // Usando ListView.separated para adicionar um espaçamento entre os itens da lista
+          return ListView.separated(
             separatorBuilder: (context, index) => SizedBox(height: 10),
             shrinkWrap: true,
             itemCount: faculdades.length,

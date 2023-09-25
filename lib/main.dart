@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 //import 'package:testandoprojetos/pages/esqueci_senha.dart';
-//import 'package:testandoprojetos/pages/principal.dart';
+import 'package:testandoprojetos/pages/principal.dart';
 import 'package:testandoprojetos/pages/login.dart';
 //import 'package:testandoprojetos/pages/cadastro.dart';
 //import 'package:testandoprojetos/pages/settings.dart';
 //import 'package:testandoprojetos/pages/user.dart';
 //import 'package:testandoprojetos/pages/search.dart';
+
 void main() {
   runApp(
     MaterialApp(
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: true,
       //home: Principal(),
       home: Login(),
-      //home: Cadastro(),
+      //home: Cadastro(), //Falta banco de dados
       //home: EsqueciSenha(),
       //home: Settings(),
       //home: User(),
