@@ -3,20 +3,23 @@ import '../../db/faculdade_search_dao.dart';
 import '../../domain/search/faculdade_search.dart';
 
 class CampoTexto extends StatefulWidget {
-  const CampoTexto({Key? key}) : super(key: key);
+  final Function(List<FaculdadeSearch>) onSearchResults;
+
+  const CampoTexto({Key? key, required this.onSearchResults}) : super(key: key);
+
 
   @override
   State<CampoTexto> createState() => _CampoTextoState();
 }
 
 class _CampoTextoState extends State<CampoTexto> {
-  final TextEditingController _searchController = TextEditingController();
-  List<FaculdadeSearch> searchResults = [];
+  final TextEditingController _controladorPesquisa = TextEditingController();
+  List<FaculdadeSearch> resultadosPesquisa = [];
 
-  void searchFaculdades(String searchText) async {
-    final results = await FaculdadeSearchDao().searchFaculdades(_searchController.text);
+  void pesquisarFaculdades(String textoPesquisa) async {
+    final resultados = await FaculdadeSearchDao().searchFaculdades(textoPesquisa);
     setState(() {
-      searchResults = results;
+      resultadosPesquisa = resultados;
     });
   }
 
@@ -31,15 +34,16 @@ class _CampoTextoState extends State<CampoTexto> {
             children: [
               Expanded(
                 child: TextFormField(
-                  controller: _searchController,
+                  controller: _controladorPesquisa,
                   onChanged: (text) {
-                    // Não é necessário fazer a pesquisa instantaneamente no campo de texto.
-                    // A pesquisa será acionada pelo botão de pesquisa.
+                    setState(() {
+                      pesquisarFaculdades(text);
+                    });
                   },
                   style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(
                     filled: true,
-                    hintText: "SEARCH",
+                    hintText: "PESQUISAR",
                     hintStyle: TextStyle(
                       color: Colors.black,
                       fontSize: 16,
@@ -54,9 +58,9 @@ class _CampoTextoState extends State<CampoTexto> {
               IconButton(
                 icon: Icon(Icons.search),
                 onPressed: () {
-                  print("teste botão");
-                  // Quando o ícone de lupa for clicado, realizar a pesquisa.
-                  searchFaculdades(_searchController.text);
+                  print("Teste botão");
+                  // Quando o ícone de pesquisa for clicado, realizar a pesquisa.
+                  pesquisarFaculdades(_controladorPesquisa.text);
                 },
               ),
             ],

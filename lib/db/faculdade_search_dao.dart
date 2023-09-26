@@ -4,6 +4,8 @@ import 'package:sqflite/sqflite.dart';
 import '../db/data_helper.dart';
 import 'package:path/path.dart';
 
+import 'database_service.dart';
+
 class FaculdadeSearchDao {
   FaculdadeSearch faculdadeSearch = FaculdadeSearch(
       id: 1,
@@ -66,12 +68,32 @@ class FaculdadeSearchDao {
 
   Future<List<FaculdadeSearch>> searchFaculdades(String searchText) async {
     DataHelper dbHelperSearch =
-        DataHelper(dbName: dbname, tableName: tableName, sqlFields: sqlFields);
+    DataHelper(dbName: dbname, tableName: tableName, sqlFields: sqlFields);
     Database databaseSearch = await dbHelperSearch.initialize();
+    //await DatabaseService().createTable(databaseSearch, tableName, sqlFields);
 
-    String sql = 'SELECT nome FROM $tableName WHERE nome LIKE $searchText';
-    print("Teste método 1");
-    final resultSearch = await databaseSearch.rawQuery(sql, ['%$searchText%']);
+    databaseSearch.insert(tableName, faculdadeSearch.toJson());
+    databaseSearch.insert(tableName, faculdadeSearch2.toJson());
+    databaseSearch.insert(tableName, faculdadeSearch3.toJson());
+    databaseSearch.insert(tableName, faculdadeSearch4.toJson());
+    databaseSearch.insert(tableName, faculdadeSearch5.toJson());
+    databaseSearch.insert(tableName, faculdadeSearch6.toJson());
+    databaseSearch.insert(tableName, faculdadeSearch7.toJson());
+    databaseSearch.insert(tableName, faculdadeSearch8.toJson());
+    databaseSearch.insert(tableName, faculdadeSearch9.toJson());
+
+
+    String sql = 'SELECT * FROM $tableName WHERE nome LIKE "%$searchText%";';
+    print("Consulta SQL: $sql");
+
+    final resultSearch = await databaseSearch.rawQuery(sql);
+    print("Resultado da Consulta: $resultSearch");
+
+    sql = 'SELECT * FROM $tableName;';
+    print("Consulta SQL: $sql");
+
+    final result = await databaseSearch.rawQuery(sql);
+    print("Resultado da Consulta: $result");
 
     List<FaculdadeSearch> list = [];
     for (var json in resultSearch) {
@@ -80,4 +102,5 @@ class FaculdadeSearchDao {
     }
     return list;
   }
+
 }

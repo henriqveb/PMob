@@ -30,9 +30,9 @@ class CardFaculdadesSearch extends StatelessWidget {
             children: [
               Text(
                 faculdadeSearch.descricao,
-                overflow: TextOverflow.ellipsis, // Adicionado o overflow
+                overflow: TextOverflow.ellipsis,
               ),
-              SizedBox(height: 8), // Adicionado um espaçamento entre as linhas
+              SizedBox(height: 8),
               Row(
                 children: List.generate(
                   5,

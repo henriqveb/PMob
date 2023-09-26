@@ -1,4 +1,4 @@
-#Mon Sep 25 00:56:03 BRT 2023
+#Mon Sep 25 23:09:21 BRT 2023
 base.0=C\:\\Users\\joseh\\Desktop\\pmob repositorio (android studio)\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

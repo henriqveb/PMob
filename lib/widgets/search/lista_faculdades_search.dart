@@ -12,32 +12,30 @@ class ListaFaculdadesSearch extends StatefulWidget {
 }
 
 class _ListaFaculdadesSearchState extends State<ListaFaculdadesSearch> {
-  final TextEditingController _searchController = TextEditingController();
-  List<FaculdadeSearch> searchResults = [];
-
-  void searchColleges(String searchText) async {
-    final results = await FaculdadeSearchDao().searchFaculdades(searchText);
-    setState(() {
-      searchResults = results;
-    });
-  }
+  List<FaculdadeSearch> resultadosPesquisa = [];
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CampoTexto(),
-        if (searchResults!.isEmpty)
+        CampoTexto(
+          onSearchResults: (resultados) {
+            setState(() {
+              resultadosPesquisa = resultados;
+            });
+          },
+        ),
+        if (resultadosPesquisa.isEmpty)
           Center(
             child: Text("Nenhum resultado encontrado."),
           )
         else
           Expanded(
             child: ListView.builder(
-              itemCount: searchResults.length,
+              itemCount: resultadosPesquisa.length,
               itemBuilder: (context, index) {
                 return CardFaculdadesSearch(
-                  faculdadeSearch: searchResults[index],
+                  faculdadeSearch: resultadosPesquisa[index],
                 );
               },
             ),

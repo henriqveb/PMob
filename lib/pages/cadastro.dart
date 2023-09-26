@@ -13,12 +13,14 @@ class _CadastroState extends State<Cadastro> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          const ContainerLogin(),
-          const SizedBox(height: 10),
-          const CorpoCadastro()
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const ContainerLogin(),
+            const SizedBox(height: 10),
+            const CorpoCadastro()
+          ],
+        ),
       ),
     );
   }
