@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 //import 'package:testandoprojetos/pages/login.dart';
 import 'package:testandoprojetos/pages/cadastro.dart';
 //import 'package:testandoprojetos/pages/settings.dart';
-//import 'package:testandoprojetos/pages/user.dart';
+//import 'package:testandoprojetos/pages/new_user.dart';
 //import 'package:testandoprojetos/pages/search.dart';
 
 void main() {

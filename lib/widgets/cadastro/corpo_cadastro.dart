@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:testandoprojetos/db/new_user_dao.dart';
 import 'package:testandoprojetos/db/validator_of_register_dao.dart';
+import 'package:testandoprojetos/domain/login/new_user.dart';
 import 'package:testandoprojetos/pages/principal.dart';
+import 'package:testandoprojetos/pages/user.dart';
 
 class CorpoCadastro extends StatefulWidget {
   const CorpoCadastro({Key? key}) : super(key: key);
@@ -181,6 +184,9 @@ class _CorpoCadastroState extends State<CorpoCadastro> {
                   });
 
                   await _validatorOfRegister.login();
+                  NewUser user = NewUser(username: usuario.value.text, password: senha.value.text, email: email.value.text, fullName: nome.value.text);
+                  NewUserDao().insertUserInDatabase(user);
+                  print("usuário: ${usuario.value.text}\nsenha: ${senha.value.text}\nnome completo: ${nome.value.text}\nemail: ${email.value.text}");
 
                   setState(() {
                     _isLoading = false;
@@ -216,3 +222,4 @@ class _CorpoCadastroState extends State<CorpoCadastro> {
     );
   }
 }
+
